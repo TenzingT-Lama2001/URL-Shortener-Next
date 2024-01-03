@@ -35,7 +35,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-500 to-purple-500 flex flex-col items-center justify-center p-8">
-      <div className="bg-white p-8 rounded shadow-lg max-w-md w-full">
+      <div className="bg-white p-8 rounded shadow-lg max-w-md w-full text-center">
         <div className="flex flex-col items-center mb-8">
           <Link href="/">
             <Image src={logo} alt="Logo" width={200} height={200} />
@@ -57,7 +57,7 @@ export default function Home() {
         </div>
 
         <button
-          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none"
+          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none transition ease-in-out duration-300"
           onClick={handleShorten}
         >
           Shorten
@@ -65,21 +65,28 @@ export default function Home() {
 
         {showBox && (
           <div className="mt-6 border p-4 rounded bg-gray-100">
-            <p className="text-green-700 font-semibold mb-2">
-              Shortened URL: <Link href={shortenedUrl} target='_blank' >{shortenedUrl}</Link>
+            <p className="w-full text-green-700 font-semibold mb-2 text-center">
+              Trimmed Url: 
             </p>
+            <p className='w-full text-green-700 font-semibold mb-2 text-center'>
+              <Link href={shortenedUrl} target='_blank' >{shortenedUrl}</Link>
+            </p>
+            <div className='text-center p-1'>
             <button
-              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none mr-2"
+              className="border border-blue-500 text-blue-500 py-2 px-4 rounded hover:bg-blue-600 hover:text-white focus:outline-none mr-2 transition ease-in-out duration-300"
               onClick={handleCopy}
             >
               Copy
             </button>
             <button
-              className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 focus:outline-none"
+              className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 focus:outline-none transition ease-in-out duration-300"
               onClick={handleCloseBox}
             >
               Close
             </button>
+
+            </div>
+
           </div>
         )}
       </div>
